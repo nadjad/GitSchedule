@@ -2,7 +2,9 @@ package test;
 
 import java.util.Date;
 
-import dao.DataAccess;
+import dao.InputDAO;
+import dao.TaskDAO;
+import dao.WorkflowDAO;
 import datamodel.Input;
 import datamodel.Task;
 import datamodel.Workflow;
@@ -11,13 +13,24 @@ public class Test {
 
 	public Test() {
 		super();
-		testInsertInput();
+		// testInsertInput();
 		// testInsert();
 		// testDelete();
+		testSearch();
+	}
+
+	public void testSearch() {
+		InputDAO idao = new InputDAO();
+		TaskDAO tdao = new TaskDAO();
+		WorkflowDAO wdao = new WorkflowDAO();
+		Task t = tdao.getTask(456);
+		System.out.println("task:" + t.getCommand_line());
+		Workflow w = wdao.getWorkflow("pppp132");
+		System.out.println("wf:" + w.getTitle());
 	}
 
 	public void testInsertInput() {
-		DataAccess da = new DataAccess();
+		InputDAO idao = new InputDAO();
 		Workflow w = new Workflow();
 		w.setStatus("running");
 		w.setStart(new Date());
@@ -31,29 +44,29 @@ public class Test {
 		ii.setAvailable(false);
 		ii.setFilePath("poooorereroo");
 		ii.setTask(t);
-		da.insertInput(ii);
+		idao.insertInput(ii);
 
 	}
 
 	public void testInsert() {
-		DataAccess da = new DataAccess();
+		WorkflowDAO wdao = new WorkflowDAO();
 		Workflow w = new Workflow();
 		w.setStatus("running");
 		w.setStart(new Date());
 		w.setTitle("pppp211");
-		da.insertWorkflow(w);
+		wdao.insertWorkflow(w);
 		w.setTitle("pppp139");
-		da.insertWorkflow(w);
+		wdao.insertWorkflow(w);
 	}
 
 	public void testDelete() {
-		DataAccess da = new DataAccess();
+		WorkflowDAO wdao = new WorkflowDAO();
 		Workflow w = new Workflow();
 		w.setStatus("running");
 		w.setStart(new Date());
 		w.setTitle("pppp");
-		da.insertWorkflow(w);
-		da.deleteWorkflow("pppp");
+		wdao.insertWorkflow(w);
+		wdao.deleteWorkflow("pppp");
 	}
 
 	public static void main(String[] args) {

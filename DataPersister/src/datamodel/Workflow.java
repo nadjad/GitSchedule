@@ -37,6 +37,13 @@ public class Workflow implements Serializable {
 		this.status = status;
 	}
 
+	public Workflow(String title, Date start, String status) {
+		super();
+		this.title = title;
+		this.start = start;
+		this.status = status;
+	}
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "wid", unique = true, nullable = false)
