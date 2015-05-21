@@ -20,9 +20,9 @@ public class Scheduler {
 
 	public List<String> schedule(Simulation sim) {
 		createDirectory("temp");
-		FlowNode f = sim.getFlow();
+		FlowNode f = sim.getFlowNode();
 		Collection<Node> nodes = f.getNodes().values();
-		Workflow wf = new Workflow("pppp2112332", new Date(), "running");
+		Workflow wf = new Workflow("test_workflow", new Date(), "running");
 		for (Node node : nodes) {
 			scheduleNode(wf, node);
 		}
