@@ -11,6 +11,22 @@ import datamodel.Task;
 public class TaskDAO {
 	private org.hibernate.classic.Session session;
 
+	public boolean insertTask(Task task) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		try {
+			session.beginTransaction();
+			// insertTask(input.getTask());
+			session.save(task);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+	}
+
 	public Task getTask(Integer id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		return (Task) session.get(Task.class, id);

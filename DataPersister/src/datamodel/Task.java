@@ -14,6 +14,7 @@ import org.hibernate.annotations.Table;
 @Table(appliesTo = "tasks")
 public class Task implements java.io.Serializable {
 	private Integer id;
+	private String id_string;
 	private Workflow workflow;
 	// private Integer vm_id;
 	private String command_line;
@@ -40,6 +41,15 @@ public class Task implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@Column(name = "id_string", unique = true, nullable = false)
+	public String getId_string() {
+		return id_string;
+	}
+
+	public void setId_string(String id_string) {
+		this.id_string = id_string;
 	}
 
 	@Column(name = "command_line", unique = false, nullable = true)

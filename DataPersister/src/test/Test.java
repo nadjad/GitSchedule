@@ -13,10 +13,10 @@ public class Test {
 
 	public Test() {
 		super();
-		// testInsertInput();
+		testInsertInput();
 		// testInsert();
 		// testDelete();
-		testSearch();
+		// testSearch();
 	}
 
 	public void testSearch() {
@@ -34,9 +34,10 @@ public class Test {
 		Workflow w = new Workflow();
 		w.setStatus("running");
 		w.setStart(new Date());
-		w.setTitle("pppp2112332");
+		w.setTitle("pppp21123dd32");
 		Task t = new Task();
 		t.setId(456);
+		t.setId_string("op1");
 		t.setStatus("running");
 		t.setCommand_line("oooo3oo");
 		t.setWorkflow(w);

@@ -1,0 +1,18 @@
+O:Op1
+a:Integer b:List<Tuple(String,Integer,Float)>
+c:Integer
+O:Op2
+in1:Integer in2:List<String> in3:Integer
+out1:Boolean out2:Boolean
+O:SUM
+a:Integer b:Integer
+s:Integer
+O:DIFF
+a:Integer b:Integer
+d:Integer
+O:opp1
+a:String
+b:String
+O:opp2
+a:String
+b:String

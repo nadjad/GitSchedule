@@ -1,0 +1,16 @@
+flow: flow1
+
+  input: in_file : String
+
+  output: out1 , out2 : String
+	
+    [ in_file ] opp1:o1 [ transit1 ]
+    [ transit1 ] opp2:o2 [ out1 ]
+    [ transit1 ] opp2:o3 [ out2 ]
+
+end
+
+
+simulation: s1
+     ["test_string"] flow1: ff [ result1, result2 ]
+end

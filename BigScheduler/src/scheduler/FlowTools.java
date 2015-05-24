@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import representation.Connection;
@@ -35,9 +36,9 @@ public class FlowTools {
 	}
 
 	private static List<String> getPortNames(FlowNode flow) {
-		List<Port> ports = flow.getInPorts();
+		Map<String, Port> ports = flow.getInPorts();
 		List<String> pNames = new ArrayList<String>();
-		for (Port p : ports) {
+		for (Port p : ports.values()) {
 			pNames.add(p.getName());
 		}
 		return pNames;
